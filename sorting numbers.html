@@ -1,0 +1,53 @@
+<!DOCTYPE Html>
+<html>
+<head>
+    
+    <title>sorting num</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="p-4">
+
+    <h3> sorting given numbers in array </h3>
+
+    <input type="text" id="array" class="form-control  w-25 mt-5 mb-5"   placeholder="enter number(e.g 2,9,7,5)">
+
+    <button class="btn btn-success" onclick="sorting()">sort</button>
+
+    <p id="result" class="mt-5"></p>
+
+
+    <script>
+
+        function sorting() {
+
+            let input=document.getElementById("array").value;
+
+            if(input.trim()==="") {
+
+                document.getElementById("result").innerText="enter valid input";
+
+                return;
+            }
+
+            let arr=input.split(",").map(Number);
+
+            arr.sort(function(a,b) {
+
+                return a - b;
+                
+            });
+
+            document.getElementById("result").innerText = "sorted : " + arr.join(',');
+
+            }
+    </script>
+
+</body>
+
+</html>
+
+
+
