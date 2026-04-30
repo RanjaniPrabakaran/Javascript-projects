@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>validate mbl num</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body class="p-4">
+        <h3>validate mobile number</h3>
+        <input type="text" id="mblnum" class="form-control w-25 mt-3" placeholder="enter mbl number">
+        <button class="btn btn-primary mt-3" onclick="validate()">validate</button>
+        <p id="result" class="mt-3"></p>
+
+        <script>
+            function validate() {
+
+                let input=document.getElementById("mblnum").value;
+
+                if(input.trim() === "") {
+                     document.getElementById("result").innerText="enter number";
+                     return;
+                }
+
+                let pattern=/^\+91-9[0-9]{9}$/;
+                if(pattern.test(input)) {
+                    document.getElementById("result").innerText="valid mbl number";
+                } else {
+                    document.getElementById("result").innerText="invalid mbl number";
+
+
+                }
+            }
+            </script>
+            </body>
+            </html>
