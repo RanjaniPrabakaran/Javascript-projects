@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>calculator</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body class="p-4">
+        <h3>simple calculator</h3>
+        <input type="number" id="num1" class="form-control w-25 mt-3" placeholder="enter first number">
+        <input type="number" id="num2" class="form-control w-25 mt-3" placeholder="enter second number">
+        <button class="btn btn-success mt-2 me-3" onclick="calculate('add')">+</button>
+        <button class="btn btn-primary mt-2 me-3" onclick="calculate('sub')">-</button>
+        <button class="btn btn-warning mt-2 me-3" onclick="calculate('mul')">*</button>
+        <button class="btn btn-danger mt-2 me-3" onclick="calculate('div')">/</button>
+        <button class="btn btn-secondary mt-2" onclick="reset()">reset</button>
+
+        <p id="result" class="mt-2"></p>
+
+        <script>
+
+            function calculate(operation) {
+                let a= parseFloat(document.getElementById("num1").value);
+                let b= parseFloat(document.getElementById("num2").value);
+
+
+                if(isNaN(a) || isNaN(b)) {
+
+                    document.getElementById("result").innerText="Enter valid numbers";
+                    return;
+                }
+
+            let result;
+
+            if(operation === 'add') {
+                result=a+b;
+                    }
+                    else if(operation === 'sub') {
+                        result=a-b;
+                    }
+                    else if(operation === 'mul')
+                    {
+                        result=a*b;
+                    }    else if(operation === 'div'){
+                    if(b === 0) {
+                        document.getElementById("result").innerText="can't divide by zero";
+                        return;
+                    }
+                        result=a/b;
+                    }
+                         
+                 document.getElementById("result").innerText="result:" + result;
+
+                }
+
+                 function reset() {
+                    
+                    document.getElementById("num1").value="";
+
+                    document.getElementById("num2").value="";
+                    
+                    document.getElementById("result").innerText="";
+                 }
+
+            
+        </script>
+    </body>
+</html>
