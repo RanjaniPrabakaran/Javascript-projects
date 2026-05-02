@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>employee validate</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+<body class="p-4">
+    <h3>Employee Form</h3>
+    <input type="text" id="name" class="form-control w-25 mt-3" placeholder="enter name">
+    <input type="email" id="mail" class="form-control w-25 mt-3" placeholder="enter email">
+    <input type="text" id="number" class="form-control w-25 mt-3" placeholder="enter mbl number(+91-XXXXXXXXXX)">
+    <input type="text" id="salary" class="form-control w-25 mt-3" placeholder="enter salary">
+
+    <button class="btn btn-primary mt-3" onclick="validateform()">submit</button>
+
+    <p id="result" class="mt-3"></p>
+
+    <script>
+        function validateform() {
+            
+            let name=document.getElementById("name").value;
+            let email=document.getElementById("mail").value;
+            let mblnumber=document.getElementById("number").value;
+            let salary=parseFloat(document.getElementById("salary").value);
+
+            if(name.trim()==="") {
+        
+                document.getElementById("result").innerText="enter name";
+                return;
+}
+let emlpattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+if(!emlpattern.test(email)) {
+    document.getElementById("result").innerText="enter valid email id";
+    return;
+}
+
+let mblpattern=/^\+91-[6-9][0-9]{9}$/;
+if(!mblpattern.test(mblnumber)){
+    document.getElementById("result").innerText="enter vaild mbl num";
+    return;
+}
+if(isNaN(salary)|| salary<=0) {
+    document.getElementById("result").innerText="enter valid salary";
+    return;
+}
+document.getElementById("result").innerText="form submitted successfully";
+        }
+        </script>
+        </body>
+        </html>
